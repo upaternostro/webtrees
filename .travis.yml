@@ -17,9 +17,9 @@ cache:
     - $HOME/.composer/cache
 
 # 7.4 does not currently have ext-gd and ext-zip - but we don't need them for our tests
-install:
-  - curl -s http://getcomposer.org/installer | php
-  - travis_retry composer install --ignore-platform-reqs
+#install:
+#  - curl -s http://getcomposer.org/installer | php
+#  - travis_retry composer install --ignore-platform-reqs
 
 before_script:
   - travis_retry composer config github-oauth.github.com "${GITHUB_OAUTH_TOKEN}"
