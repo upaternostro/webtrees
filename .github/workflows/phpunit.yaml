@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest]
-        php-version: ['7.1', '7.2', '7.3', '7.4']
+        php-version: ['7.3', '7.4','8.0']
 
     name: Testing PHP ${{ matrix.php-version }} on ${{ matrix.operating-system }}
 
@@ -26,10 +26,7 @@ jobs:
 
       - run: composer validate
 
-      - run: composer install --prefer-dist --no-progress --no-suggest --ignore-platform-reqs
-
-      - run: composer require pcov/clobber
-      - run: vendor/bin/pcov clobber
+      - run: composer install --prefer-dist --no-progress --ignore-platform-reqs
 
       - run: vendor/bin/phpunit --coverage-clover=tests/coverage.xml
 
