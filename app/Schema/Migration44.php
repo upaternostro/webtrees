@@ -70,7 +70,7 @@ class Migration44 implements MigrationInterface
                     'pl_lati' => null,
                     'pl_long' => null,
                 ]);
-
+            var_dump(SQLite3::version());
             // Missing/invalid parents?  Move them to the top level
             DB::table('placelocation AS pl1')
                 ->leftJoin('placelocation AS pl2', 'pl1.pl_parent_id', '=', 'pl2.pl_id')
