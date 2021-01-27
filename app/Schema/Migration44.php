@@ -87,8 +87,8 @@ class Migration44 implements MigrationInterface
                     'pl_id',
                     new Expression('CASE pl_parent_id WHEN 0 THEN NULL ELSE pl_parent_id END'),
                     'pl_place',
-                    new Expression("REPLACE(REPLACE(pl_lati, 'S', '-'), 'N', '')"),
-                    new Expression("REPLACE(REPLACE(pl_long, 'W', '-'), 'E', '')"),
+                    new Expression("REPLACE(REPLACE(pl_lati, 'S', '-'), 'N', '')::numeric"),
+                    new Expression("REPLACE(REPLACE(pl_long, 'W', '-'), 'E', '')::numeric"),
                 ]);
 
             DB::table('place_location')
